@@ -1,5 +1,7 @@
 import http from '../core/http-common'
 
+
+//hacer un getall por endpoint del dbjson
 export class TreadmillDataService{
     getAllCenters() {
         return http.get('/centers')
