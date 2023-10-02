@@ -57,22 +57,22 @@ export default {
                 global: { value: null, matchMode: FilterMatchMode.CONTAINS },
             };
         },
-        loadHealthChecks() {
+        loadHealthChecks() { //funcion para que salga la data
             this.treadmillService.getAllHealthChecks().then(response => {
                 this.healthChecks = response.data;
             }).catch(error => {
                 console.log(error);
             });
         },
-        loadTreadmillsAndCenters() {
+        loadTreadmillsAndCenters() { //funcion para que salga la data
             this.treadmillService.getAllTreadmills().then(response => {
                 this.treadmills = response.data;
             }).catch(error => {
                 console.log(error);
             });
 
-            this.treadmillService.getAllCenters().then(response => {
-                this.centers = response.data;
+            this.treadmillService.getAllCenters().then(response => { 
+                this.centers = response.data; 
             }).catch(error => {
                 console.log(error);
             });
@@ -85,20 +85,20 @@ export default {
             }
 
             return this.healthChecks.map(hc => {
-                const treadmill = this.treadmills.find(t => t.id === hc.treadmillId);
+                const treadmill = this.treadmills.find(t => t.id === hc.treadmillId); //treadmillId es para usarlo arriba
                 const center = this.centers.find(c => c.id === treadmill.centerId);
                 return {
-                    ...hc,
-                    serialNumber: treadmill.serialNumber,
-                    centerName: center.name,
-                    date: `${hc.year}-${hc.month}-${hc.day}`,
+                    ...hc, //poner
+                    serialNumber: treadmill.serialNumber, //para bsucar el serial number por el id de arriba linea 87
+                    centerName: center.name, //para buscar el centername por el id de arirba linea 88
+                    date: `${hc.year}-${hc.month}-${hc.day}`, //para concatenar
                     time: `${hc.hour}:${hc.minutes}:${hc.seconds}`,
                 };
             });
         },
     },
-    mounted() {
-        this.loadTreadmillsAndCenters();
+    mounted() { //importante para que salga toda la data 
+        this.loadTreadmillsAndCenters(); //tambien se puede poner en methods
     },
 };
 </script>
