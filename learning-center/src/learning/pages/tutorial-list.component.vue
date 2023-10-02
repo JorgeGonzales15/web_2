@@ -259,7 +259,7 @@
           { label: "Published", value: "published" },
           { label: "Unpublished", value: "unpublished" },
         ],
-        tutorialsService: null,
+        tutorialsService: null, //cambiar esto por tutorialService: new TutorialsApiService() y borrar linea 268
         filters: {},
         submitted: false,
       };
