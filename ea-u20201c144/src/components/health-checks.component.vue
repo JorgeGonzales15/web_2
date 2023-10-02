@@ -40,11 +40,11 @@ export default {
     name: 'HealthCheckComponent',
     data() {
         return {
-            healthChecks: [],
+            healthChecks: [], //importante si no nosale data del propi dbjson
             filters: {},
-            treadmillService: new TreadmillDataService(),
-            treadmills: [], 
-            centers: [],
+            treadmillService: new TreadmillDataService(), //improtante si no nosale data
+            treadmills: [],  //improtante sino nosale data del propio dbjson
+            centers: [], //impotante sino nosale data del propio dbjson
         };
     },
     created(){
